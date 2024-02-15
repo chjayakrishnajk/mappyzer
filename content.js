@@ -1,7 +1,7 @@
 function wait(seconds) {
   const milliseconds = seconds * 1000;
-  return new Promise(resolve => setTimeout(resolve, milliseconds));
-
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
 class Data {
     constructor() {
         this.chapters = {};
