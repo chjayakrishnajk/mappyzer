@@ -76,6 +76,44 @@ async function CheckButtonClick()
   //Add input to Data
   chapterName = GetChapter();
   topicName = GetTopic()
+class Data {
+    constructor() {
+        this.chapters = {};
+    }
+
+    addChapter(chapterName) {
+        if (!this.chapters[chapterName]) {
+            this.chapters[chapterName] = new Chapter();
+        }
+        return this.chapters[chapterName];
+    }
+}
+
+class Chapter {
+    constructor() {
+        this.topics = {};
+    }
+
+    addTopic(topicName) {
+        if (!this.topics[topicName]) {
+            this.topics[topicName] = new Topic();
+        }
+        return this.topics[topicName];
+    }
+}
+
+class Topic {
+    constructor() {
+        this.questions = {};
+    }
+
+    addQuestion(questionName, result) {
+        if (!this.questions[questionName]) {
+            this.questions[questionName] = result;
+        }
+        return this;
+    }
+}
   questionId = GetQuestionId();
   result = await GetResult();
   data.addChapter(chapterName).addTopic(topicName).addQuestion(questionId, result);
@@ -131,7 +169,7 @@ async function GetResult()
     console.log("Waited "+ i + " Seconds");
   var wrong = document.getElementsByClassName("question-options__option__label__top text-danger").length
   var right = document.getElementsByClassName("question-options__option__label__top text-success").length;
-  if(wrong == 1 && right ==0)
+  if(wrong == 1)
   {
     return "0";
   }
