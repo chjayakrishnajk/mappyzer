@@ -68,9 +68,6 @@ document.addEventListener("click", function(event) {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Set up a MutationObserver to watch for changes in the DOM
-//  const observer = new MutationObserver(handleMutation);
-//  observer.observe(document.body, { childList: true, subtree: true });
 });
 
 async function CheckButtonClick()
